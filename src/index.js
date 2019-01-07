@@ -1,7 +1,3 @@
-/** @jsx createElement */
-
-'use strict';
-
 import {isWeb} from 'universal-env';
 
 let GestureView;
@@ -13,3 +9,4 @@ if (isWeb) {
 }
 
 export default GestureView;
+module.exports = exports["default"];

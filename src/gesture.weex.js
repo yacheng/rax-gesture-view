@@ -1,7 +1,3 @@
-/** @jsx createElement */
-
-'use strict';
-
 import {createElement, Component} from 'rax';
 import View from 'rax-view';
 
