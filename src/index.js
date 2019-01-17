@@ -9,4 +9,4 @@ if (isWeb) {
 }
 
 export default GestureView;
-module.exports = exports["default"];
+module.exports = exports.default;
