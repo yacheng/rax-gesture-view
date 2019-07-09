@@ -18,15 +18,15 @@ Component({
   methods: {
     onTouchStart(e) {
       var event = fmtEvent(this.props, e);
-      startPoint.x = e.changedTouches[0].pageX
-      startPoint.y = e.changedTouches[0].pageY
+      startPoint.x = event.changedTouches[0].pageX
+      startPoint.y = event.changedTouches[0].pageY
     },
     onTouchMove(e) {
       var event = fmtEvent(this.props, e);
       if (!touchMoveStarted) {
         const touchMoveStartPoint = {
-          x: e.changedTouches[0].pageX,
-          y: e.changedTouches[0].pageY
+          x: event.changedTouches[0].pageX,
+          y: event.changedTouches[0].pageY
         }
         touchMoveStarted = true;
 
@@ -37,31 +37,32 @@ Component({
         }
 
         if (isHorizontal) {
-          e.state = 'onHorizontalPan:start';
-          this.props.onHorizontalPan(e);
+          event.state = 'onHorizontalPan:start';
+          this.props.onHorizontalPan(event);
         } else {
-          e.state = 'onVeriticalPan:start';
-          this.props.onVerticalPan(e);
+          event.state = 'onVeriticalPan:start';
+          this.props.onVerticalPan(event);
         }
       }
 
       if (isHorizontal) {
-        e.state = 'onHorizontalPan:move';
-        this.props.onHorizontalPan(e);
+        event.state = 'onHorizontalPan:move';
+        this.props.onHorizontalPan(event);
       } else {
-        e.state = 'onVeriticalPan:move';
-        this.props.onVerticalPan(e);
+        event.state = 'onVeriticalPan:move';
+        this.props.onVerticalPan(event);
       }
     },
     onTouchEnd(e) {
       touchMoveStarted = false;
+      var event = fmtEvent(this.props, e);
 
       if (isHorizontal) {
-        e.state = 'onHorizontalPan:end';
-        this.props.onHorizontalPan(e);
+        event.state = 'onHorizontalPan:end';
+        this.props.onHorizontalPan(event);
       } else {
-        e.state = 'onVeriticalPan:end';
-        this.props.onVerticalPan(e);
+        event.state = 'onVeriticalPan:end';
+        this.props.onVerticalPan(event);
       }
     }
   }
