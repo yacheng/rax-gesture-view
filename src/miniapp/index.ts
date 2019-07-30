@@ -10,7 +10,7 @@ let touchMoveStarted = false;
 Component({
   data: {},
   props: {
-    style: "",
+    style: '',
     onVerticalPan: () => {},
     onHorizontalPan: () => {}
   },
@@ -18,8 +18,8 @@ Component({
   methods: {
     onTouchStart(e) {
       var event = fmtEvent(this.props, e);
-      startPoint.x = event.changedTouches[0].pageX
-      startPoint.y = event.changedTouches[0].pageY
+      startPoint.x = event.changedTouches[0].pageX;
+      startPoint.y = event.changedTouches[0].pageY;
     },
     onTouchMove(e) {
       var event = fmtEvent(this.props, e);
@@ -27,7 +27,7 @@ Component({
         const touchMoveStartPoint = {
           x: event.changedTouches[0].pageX,
           y: event.changedTouches[0].pageY
-        }
+        };
         touchMoveStarted = true;
 
         if (Math.abs(startPoint.x - touchMoveStartPoint.x) < 20) {
